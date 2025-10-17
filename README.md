@@ -1,5 +1,13 @@
-# ROS2-develop
-
-RoboMaster-南京理工大学Alliance战队2026赛季培训使用
-
-本质上是RMCS项目 (https://github.com/Alliance-Algorithm/RMCS) 去除了全部的ros2包，提供一个docker启动的ROS2开发环境，供2026赛季算法组培训成员作业使用
+# 使用
+启动模拟电机节点
+```
+ros2 run motor_simulator motor_simulator_node    
+```
+运行滤波器节点，中值滤波和低通滤波器两个话题，这里默认用低通滤波器处理电机的返回数据
+```
+ros2 run third filter_node
+```
+运行pid控制节点，订阅低通滤波器话题，使用其数据进行电机pid控制，有速度控制和角度控制，由于这两个功能在一定程度上会冲突，因此使用一个功能时要注释掉另一个功能，具体操作在test_ws/src/motor_simulator-ros2/src/pid_control.cpp里有标注
+```
+ros2 run motor_simulator pid_control
+```
