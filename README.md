@@ -11,3 +11,7 @@ ros2 run third filter_node
 ```
 ros2 run motor_simulator pid_control
 ```
+运行噪声信号生成器节点
+```
+ros2 run third signal_generate_third
+```
